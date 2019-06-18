@@ -1,0 +1,23 @@
+<h1><%= t('listing', name: t('list.title', count: 1)) %></h1>
+
+<%= image_tag(@list.avatar_url, class: 'rounded mx-auto d-block') if @list.avatar? %>
+
+<table class="table table-striped table-hover">
+
+ <tr>
+   <th scope="row"><%= t('list.product') %>:</th>
+   <td><%= @list.product %></td>
+ </tr>
+ <tr>
+   <th scope="row"><%= t('list.quantity') %>:</th>
+   <td><%= @list.quantity %></td>
+ </tr>
+ <tr>
+   <th scope="row"><%= t('list.is_bought') %>:</th>
+   <td><%= @list.is_bought %></td>
+ </tr>
+
+</table>
+
+<%= link_to t('edit'), user_lists_path(@list), class: 'btn btn-primary', role: :button %>
+<%= link_to t('index'), lists_path, class: 'btn btn-outline-secondary', role: :button %>

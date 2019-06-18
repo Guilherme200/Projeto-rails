@@ -1,0 +1,6 @@
+pt-BR:
+ index: Listagem
+ show: Exibir
+ destroy: Remover
+ edit: Editar
+ new: Novo %{name}

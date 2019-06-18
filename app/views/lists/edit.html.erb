@@ -1,0 +1,6 @@
+<h1><%= t('editing', name: t('list.title', count: 1)) %></h1>
+
+<%= render 'form' %>
+
+<%= link_to t('show'), @list, class: 'btn btn-info', role: :button %>
+<%= link_to t('index'), lists_path, class: 'btn btn-outline-secondary', role: :button %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lists
+  devise_for :users
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -56,6 +58,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'home#index'
+  root 'lists#index'
 
 end
