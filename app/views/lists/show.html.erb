@@ -5,12 +5,8 @@
 <table class="table table-striped table-hover">
 
  <tr>
-   <th scope="row"><%= t('list.product') %>:</th>
-   <td><%= @list.product %></td>
- </tr>
- <tr>
-   <th scope="row"><%= t('list.quantity') %>:</th>
-   <td><%= @list.quantity %></td>
+   <th scope="row"><%= t('list.name') %>:</th>
+   <td><%= @list.name %></td>
  </tr>
  <tr>
    <th scope="row"><%= t('list.is_bought') %>:</th>
@@ -19,5 +15,5 @@
 
 </table>
 
-<%= link_to t('edit'), user_lists_path(@list), class: 'btn btn-primary', role: :button %>
+<%= link_to t('edit'), lists_path(@list), class: 'btn btn-primary', role: :button %>
 <%= link_to t('index'), lists_path, class: 'btn btn-outline-secondary', role: :button %>

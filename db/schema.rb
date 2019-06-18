@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190618030238) do
+ActiveRecord::Schema.define(version: 20190618212736) do
 
   create_table "lists", force: :cascade do |t|
-    t.string   "product"
-    t.integer  "quantity"
+    t.integer  "product_id"
+    t.string   "name"
     t.boolean  "is_bought"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -23,7 +23,15 @@ ActiveRecord::Schema.define(version: 20190618030238) do
     t.string   "avatar"
   end
 
+  add_index "lists", ["product_id"], name: "index_lists_on_product_id"
   add_index "lists", ["user_id"], name: "index_lists_on_user_id"
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
