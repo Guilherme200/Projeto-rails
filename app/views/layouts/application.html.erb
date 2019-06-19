@@ -8,14 +8,17 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <%= link_to t('Usuário:'), root_path, class: 'navbar-brand' %>
+    <%= link_to t('Projeto'), root_path, class: 'navbar-brand' %>
     <div class="collapse navbar-collapse">
       <div class="navbar-nav">
+
        <% if user_signed_in? %>
         <%= link_to current_user.email, '#', class: 'nav-item nav-link' %>
        <%end%> 
       </div>
     </div>
+
+      <%= link_to 'pt-BR', root_path(locale: 'pt-BR'), class: 'nav-item nav-link' %>
 
      <% if user_signed_in? %>
      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-item nav-link') %>
@@ -26,10 +29,6 @@
    <% flash.each do |key, value| %>
      <div class="<%= flash_class(key) %> alert-dismissible fade show" role="alert">
        <%= value %>
-
-       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
      </div>
    <% end %>
 

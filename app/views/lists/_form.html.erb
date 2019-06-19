@@ -1,4 +1,4 @@
-<%= form_for(@list) do |f| %>
+<%= form_for(@list) do |f|%>
   <% if @list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
@@ -11,19 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label t('list.name') %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control', :required => true %>
   </div>
-  <div class="field">
-    <%= f.label t('list.is_bought') %><br>
-    <%= f.check_box :is_bought %>
-  </div>
+  
   <div class="field">
     <%= f.label :avatar %><br>
-    <%= f.file_field :avatar, as: :file %>
+    <%= f.file_field :avatar, as: :file, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-check mt-3 mb-3">
+    <%= f.check_box :is_bought, class: 'form-check-input' %>
+     <%= f.label t('list.is_bought'), class: 'form-check-label' %>
   </div>
+
+  <div class="row mt-2 mb-5">
+    <div class="col-md-6">
+      <%= link_to t('back'), lists_path(@list), class: 'btn btn-dark btn-block', role: :button %>
+    </div>
+    <div class="col-md-6">
+      <%= f.submit class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>  
 <% end %>

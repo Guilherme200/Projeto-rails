@@ -11,15 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control', :required => true %>
   </div>
-  <div class="field">
+  
+  <div class="form-group">
     <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
+    <%= f.number_field :quantity, class: 'form-control', :required => true %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <div class="row mt-2 mb-5">
+    <div class="col-md-6">
+      <%= link_to t('back'), list_path(@list), class: 'btn btn-dark btn-block', role: :button %>
+    </div>
+    <div class="col-md-6">
+      <%= f.submit class: 'btn btn-primary btn-block' %>
+    </div>
+  </div> 
 <% end %>

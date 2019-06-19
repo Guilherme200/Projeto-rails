@@ -1,8 +1,13 @@
-<h1><%= t('listing', name: t('list.title', count: 1)) %></h1>
+<h1><%= t('show', name: t('list.title', count: 1)) %></h1>
 
-<%= image_tag(@list.avatar_url, class: 'rounded mx-auto d-block') if @list.avatar? %>
+<div class="row justify-content-center mb-5">
+  <%= image_tag(@list.avatar_url, 
+    class: 'img-thumbnail', 
+    width: '500', 
+    height: '500') if @list.avatar? %>
+  </div>
 
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover table-dark bg-dark">
 
  <tr>
    <th scope="row"><%= t('list.name') %>:</th>
