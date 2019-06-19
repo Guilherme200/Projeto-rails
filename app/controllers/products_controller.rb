@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_list
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @items = Product.where(list_id: @list.id).all
+    @products = @items.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /products/1
@@ -24,11 +26,11 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = @list.products.new(product_params)
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to list_product_path(@list, @product), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to list_product_path(@list, @product), notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to list_products_path(@list, @product), notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +72,10 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :quantity)
+    end
+
+    private
+    def set_list
+      @list = List.find(params[:list_id])
     end
 end

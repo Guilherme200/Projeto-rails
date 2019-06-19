@@ -16,7 +16,6 @@
        <td><%= list.is_bought %></td>
        <td>
          <div class="btn-group btn-group-sm" role="group">
-           <%= link_to t('products'), products_path, class: 'btn btn-outline-secondary', role: :button %>
            <%= link_to t('show'), list, class: 'btn btn-info', role: :button %>
            <%= link_to t('edit'), edit_list_path(list), class: 'btn btn-success', role: :button %>
            <%= link_to t('destroy'), list, method: :delete, data: { confirm: t('confirm_destroy') }, class: 'btn btn-danger', role: :button %>

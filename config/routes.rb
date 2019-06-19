@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :products
-  resources :lists
+  resources :lists do
+    resources :products
+  end  
   devise_for :users
   get 'home/index'
 

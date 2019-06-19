@@ -3,6 +3,7 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :name
       t.integer :quantity
+      t.references :list, index: true, foreign_key: true
 
       t.timestamps null: false
     end

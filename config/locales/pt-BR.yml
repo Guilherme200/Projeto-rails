@@ -3,4 +3,17 @@ pt-BR:
  show: Exibir
  destroy: Remover
  edit: Editar
- new: Novo %{name}
+ new: Novo
+ actions: Ações
+ listing: Listando %{name}
+
+ list:
+  title: Compras
+  name: Nome
+  is_bought: Comprada  
+  listing: Lista de compras
+  products: Produtos
+  product:
+    title: Produtos
+    name: Nome
+    quantity: Quantidade
