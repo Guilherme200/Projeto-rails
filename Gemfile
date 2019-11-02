@@ -50,7 +50,7 @@ group :development do
 
   gem 'simple_form', '~> 3.5', '>=3.5.1'
 
-  gem 'devise', '~> 4.4', '>= 4.4.3'
+  gem 'devise', '~> 4.7'
 	gem 'devise-bootstrap-views', '~> 1.1'
 
   gem 'will_paginate', '~> 3.1', '>= 3.1.7'
